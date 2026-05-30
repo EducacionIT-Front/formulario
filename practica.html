@@ -6,30 +6,44 @@
     <title>Travel Destination</title>
 </head>
 <body>
+<form action="https://formsubmit.co/sabrina.castagno@educacionit.com" method="POST">
 
-<div class="container">
-  <h1>FormSubmit Demo</h1>
-  <form target="_blank" action="https://formsubmit.co/sabrina.castagno@educacionit.com" method="POST">
-    <div class="form-group">
-      <div class="form-row">
-        <div class="col">
-          <input type="text" name="name" class="form-control" placeholder="Full Name" required>
-        </div>
-        <div class="col">
-          <input type="email" name="email" class="form-control" placeholder="Email Address" required>
-        </div>
-      </div>
-    </div>
-    <div class="form-group">
-      <textarea placeholder="Your Message" class="form-control" name="message" rows="10" required></textarea>
-    </div>
-    <button type="submit" class="btn btn-lg btn-dark btn-block">Submit Form</button>
-    <input type="hidden" name="_next" value="https://educacionit-front.github.io/formulario/gracias.html">
-    <input type="hidden" name="_captcha" >
-    <input type="hidden" name="_autoresponse" value="gracais por enviarme un mail">
-    <input type="hidden" name="_template" value="box">
-  </form>
-</div>
+    <label for="nombre">Nombre:</label><br>
+    <input type="text" id="nombre" name="Nombre" required><br><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="Email" required><br><br>
+
+    <label for="comentario">Comentario:</label><br>
+    <textarea id="comentario" name="Comentario" required></textarea><br><br>
+
+    <p><strong>Captcha:</strong> ¿Cuánto es 4 + 3?</p>
+    <input type="text" id="captcha" required><br><br>
+
+    <!-- Página de agradecimiento -->
+    <input type="hidden" name="_next" value="gracias.html">
+
+    <!-- Desactiva el captcha de FormSubmit -->
+    <input type="hidden" name="_captcha" value="false">
+
+    <button type="submit">Enviar</button>
+
+</form>
+
+<script>
+function validarCaptcha() {
+    const respuesta = document.getElementById("captcha").value;
+
+    if (respuesta !== "7") {
+        alert("Captcha incorrecto.");
+        return false;
+    }
+
+    return true;
+}
+
+document.querySelector("form").onsubmit = validarCaptcha;
+</script>
     
 </body>
 </html>
